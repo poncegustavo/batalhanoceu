@@ -128,11 +128,8 @@ main {
 .grid-container.reverse { grid-template-columns: 1.5fr 1fr; }
 .grid-container.reverse .grid-text { order: -1; }
 .grid-text { text-align: center; } 
-.grid-text h3 { font-size: 2rem; color: var(--color-accent-gold); margin-bottom: 1rem; }
-.grid-text p { color: var(--color-secondary-text); margin-bottom: 1rem; }
-.grid-text .saiba-mais { display: inline-block; margin-top: 1rem; font-weight: 700; }
 
-/* Adicionado para centralizar o conteúdo da seção com a classe text-center */
+/* Adicionado para centralizar o conteúdo da seção com a classe text-center (se ainda for usado) */
 .content-section.text-center {
     text-align: center;
 }
@@ -248,77 +245,115 @@ main {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra mais forte no hover */
 }
 
-/* Botão Voltar para o Início */
-.back-to-home-button {
-    display: inline-block;
-    background-color: var(--color-surface);
-    color: var(--color-primary-text);
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border: 1px solid var(--color-accent-gold);
-    transition: all var(--transition-speed) ease;
-    margin-top: 3rem; /* Espaçamento acima do botão */
-    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-}
-
-.back-to-home-button:hover {
-    background-color: var(--color-accent-gold);
-    color: #000;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-}
-
-/* --- ESTILOS ESPECÍFICOS PARA OS CARDS DE ALISTAMENTO (gateway-option) --- */
-.gateway-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem; /* Aumenta o espaçamento entre os cards */
-    margin-top: 2rem;
-    justify-content: center; /* Centraliza os cards no grid */
-    text-align: center;
-}
-
-.gateway-option {
-    background-color: var(--color-surface);
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--color-border); /* Adiciona uma borda sutil */
+/* --- ESTILOS PARA PÁGINAS DE AUTENTICAÇÃO (login.html e cadastro.html) --- */
+.auth-page {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empurra o link para baixo */
+    justify-content: center;
     align-items: center;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3); /* Sombra inicial */
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    padding: 2rem 1rem; /* Padding para evitar que o conteúdo encoste nas bordas em telas pequenas */
+    background-color: var(--color-background); /* Garante o fundo correto */
 }
 
-.gateway-option:hover {
-    transform: translateY(-8px); /* Efeito de elevação */
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4), 0 0 25px rgba(212, 175, 55, 0.2); /* Luminosidade dourada no hover */
-    border-color: var(--color-accent-gold); /* Borda dourada no hover */
+.auth-card {
+    background-color: var(--color-surface);
+    padding: 3rem 2.5rem;
+    border-radius: var(--border-radius);
+    max-width: 450px; /* Largura máxima para o card */
+    width: 100%; /* Ocupa a largura total disponível até o max-width */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para destacar o card */
+    text-align: center; /* Centraliza o texto e logo */
+    border: 1px solid var(--color-border); /* Borda sutil */
 }
 
-.gateway-option h3 {
-    font-size: 1.8rem;
-    color: var(--color-accent-gold); /* Título em dourado */
-    margin-bottom: 1rem;
-}
-
-.gateway-option p {
-    color: var(--color-secondary-text);
+.auth-card .form-logo {
+    height: 60px; /* Tamanho maior para o logo no card de autenticação */
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Permite que o parágrafo ocupe o espaço */
+    margin-left: auto; /* Centraliza o logo */
+    margin-right: auto; /* Centraliza o logo */
 }
 
-.gateway-option .gateway-link {
-    font-weight: bold;
-    color: var(--color-primary-text); /* Link em cor primária */
-    margin-top: 1rem;
-    transition: color var(--transition-speed);
+.auth-card h1 {
+    font-size: 2.2rem;
+    color: var(--color-primary-text);
+    margin-bottom: 0.8rem;
 }
 
-.gateway-option:hover .gateway-link {
-    color: #fff; /* Link mais claro no hover */
+.auth-card p {
+    color: var(--color-secondary-text);
+    margin-bottom: 2rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left; /* Alinha labels e inputs à esquerda dentro do form group */
+}
+
+.auth-form label {
+    display: block; /* Cada label em uma nova linha */
+    font-size: 0.95rem;
+    color: var(--color-primary-text);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: #2a2a2a; /* Fundo mais escuro para os inputs */
+    color: var(--color-primary-text);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed);
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--color-accent-gold); /* Borda dourada no foco */
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3); /* Sombra sutil no foco */
+}
+
+.auth-form .cta-button {
+    width: 100%; /* Botão ocupa a largura total do card */
+    padding: 1rem 1.5rem; /* Ajuste o padding se necessário */
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.auth-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-secondary-text);
+}
+
+.auth-link a {
+    font-weight: 700;
+}
+
+
+/* NOVO ESTILO PARA O BOTÃO "VOLTAR PARA O INÍCIO" */
+.back-to-home-link { /* Nova classe para o estilo de link */
+    display: inline-block; /* Para permitir margin e padding */
+    font-weight: 700;
+    color: var(--color-accent-gold); /* Cor dourada */
+    text-decoration: none; /* Sem sublinhado padrão */
+    padding: 0.5rem 1rem; /* Um pouco de padding para área de clique */
+    transition: filter var(--transition-speed); /* Transição suave no hover */
+    margin-top: 2rem; /* Margem superior para separar do conteúdo */
+    margin-bottom: 1rem; /* Margem inferior para separar do rodapé */
+}
+
+.back-to-home-link:hover {
+    filter: brightness(1.2); /* Clareia no hover, como outros links */
+}
+
+/* Esconder a section antiga e adicionar o link diretamente */
+/* O HTML será alterado para remover a section. Este CSS é apenas para garantir */
+/* que o estilo anterior não afete caso a section fosse mantida. */
+.content-section.text-center .back-to-home-button {
+    display: none; /* Esconde o botão antigo dentro da section, se ainda existisse */
 }
