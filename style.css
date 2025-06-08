@@ -101,7 +101,7 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     font-size: 1.25rem;
     color: var(--color-secondary-text);
     max-width: 650px;
-    margin: 1.5rem auto 2.5rem auto; /* CORREÇÃO DE ALINHAMENTO */
+    margin: 1.5rem auto 2.5rem auto; /* Alinhamento centralizado */
 }
 
 /* --- 5. SEÇÕES DE CONTEÚDO --- */
@@ -112,7 +112,7 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
 .grid-container { display: grid; grid-template-columns: 1fr 1.5fr; align-items: center; gap: 4rem; }
 .grid-container.reverse { grid-template-columns: 1.5fr 1fr; }
 .grid-container.reverse .grid-text { order: -1; }
-.grid-text { text-align: center; } /* CORREÇÃO DE ALINHAMENTO */
+.grid-text { text-align: center; } 
 .grid-text h3 { font-size: 2rem; color: var(--color-accent-gold); margin-bottom: 1rem; }
 .grid-text p { color: var(--color-secondary-text); margin-bottom: 1rem; }
 .grid-text .saiba-mais { display: inline-block; margin-top: 1rem; font-weight: 700; }
@@ -133,25 +133,12 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
 }
 .weapon-card h4 { color: var(--color-primary-text); font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-/* --- SEÇÃO FINAL CTA (DESTAQUE CORRIGIDO) --- */
-#alistamento-final {
-    background-color: var(--color-accent-gold);
-    text-align: center; /* CORREÇÃO DE ALINHAMENTO */
-}
-#alistamento-final .section-title, #alistamento-final .section-subtitle {
-    color: #000;
+/* SEÇÃO FINAL CTA (REVERTIDA PARA O PADRÃO) */
+#alistamento-final .content-section {
+    text-align: center;
 }
 #alistamento-final .cta-button {
-    background: var(--color-background);
-    color: var(--color-primary-text);
-    box-shadow: 0 5px 25px rgba(0,0,0, 0.2);
-    animation: none;
-}
-#alistamento-final .cta-button:hover {
-    background: #000;
-    color: var(--color-accent-gold);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(0,0,0, 0.4);
+    animation: pulse-glow 3s infinite ease-in-out; /* Mantém a animação de pulsação */
 }
 
 /* --- 6. RODAPÉ --- */
@@ -169,5 +156,5 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     .grid-container, .grid-container.reverse { grid-template-columns: 1fr; }
     .grid-container .grid-image, .grid-container.reverse .grid-image { margin: 0 auto 2rem auto; }
     .grid-text { text-align: center; }
-    .main-nav { display: none; }
+    .main-nav { display: none; } /* Adicionar lógica JS para menu hambúrguer no futuro */
 }
