@@ -16,6 +16,7 @@
     --container-width: 1100px;
     --border-radius: 8px;
     --transition-speed: 0.4s;
+    --navbar-height: 80px; /* Adicionado para o cabeçalho */
 }
 
 /* --- 2. RESET E ESTILOS GLOBAIS --- */
@@ -34,6 +35,20 @@ img { max-width: 100%; height: auto; display: block; border-radius: var(--border
 a { text-decoration: none; color: var(--color-accent-gold); transition: filter var(--transition-speed); }
 a:hover { filter: brightness(1.2); }
 h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; color: var(--color-primary-text); }
+
+/* Ajuste para o conteúdo não ficar sob o cabeçalho fixo */
+main {
+    padding-top: var(--navbar-height); /* Adiciona um padding no topo da main igual à altura da navbar */
+}
+/* No caso de page-header que já tem padding no topo, podemos ajustar */
+.page-header {
+    padding-top: 3rem; /* Pode manter ou ajustar este padding */
+    padding-bottom: 3rem;
+    text-align: center;
+    background-color: var(--color-surface); /* Ou manter transparente se for hero */
+    border-bottom: 1px solid var(--color-border);
+}
+
 
 /* --- 3. NAVEGAÇÃO PROFISSIONAL --- */
 .navbar {
@@ -86,7 +101,7 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
 
 /* --- 4. HERO SECTION --- */
 .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - var(--navbar-height)); /* Ajustado para considerar a navbar */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,12 +116,12 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     font-size: 1.25rem;
     color: var(--color-secondary-text);
     max-width: 650px;
-    margin: 1.5rem auto 2.5rem auto; /* Alinhamento centralizado */
+    margin: 1.5rem auto 2.5rem auto;
 }
 
 /* --- 5. SEÇÕES DE CONTEÚDO --- */
 .content-section { padding: 6rem 0; }
-.darker-section { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.darker { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
 .section-title { font-size: 3rem; text-align: center; margin-bottom: 1.5rem; }
 .section-subtitle { font-size: 1.1rem; color: var(--color-secondary-text); text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
 .grid-container { display: grid; grid-template-columns: 1fr 1.5fr; align-items: center; gap: 4rem; }
@@ -117,14 +132,14 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
 .grid-text p { color: var(--color-secondary-text); margin-bottom: 1rem; }
 .grid-text .saiba-mais { display: inline-block; margin-top: 1rem; font-weight: 700; }
 
-/* --- SEÇÃO "ARMAS" --- */
+/* SEÇÃO "ARMAS" / GRID GERAL DE CARDS */
 .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; text-align: left;}
 .weapon-card {
     background-color: var(--color-surface);
     padding: 2rem;
     border-radius: var(--border-radius);
     border-left: 4px solid var(--color-accent-gold);
-    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out, border-left-color var(--transition-speed);
 }
 .weapon-card:hover {
     transform: scale(1.05);
@@ -133,12 +148,12 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
 }
 .weapon-card h4 { color: var(--color-primary-text); font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-/* SEÇÃO FINAL CTA (REVERTIDA PARA O PADRÃO) */
+/* SEÇÃO FINAL CTA */
 #alistamento-final .content-section {
     text-align: center;
 }
 #alistamento-final .cta-button {
-    animation: pulse-glow 3s infinite ease-in-out; /* Mantém a animação de pulsação */
+    animation: pulse-glow 3s infinite ease-in-out;
 }
 
 /* --- 6. RODAPÉ --- */
@@ -157,7 +172,13 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     .grid-container .grid-image, .grid-container.reverse .grid-image { margin: 0 auto 2rem auto; }
     .grid-text { text-align: center; }
     .main-nav { display: none; } /* Adicionar lógica JS para menu hambúrguer no futuro */
+
+    /* Ajuste para mobile no padding-top para main */
+    main {
+        padding-top: var(--navbar-height);
+    }
 }
+
 /* --- ESTILOS ESPECÍFICOS PARA OS CARDS DE FORMAÇÃO (COM BASE NO WEAPON-CARD) --- */
 .formation-card {
     display: flex;
@@ -165,6 +186,15 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     height: auto; /* Permite que o card se ajuste ao conteúdo */
     text-align: center; /* Alinha o texto do card ao centro */
     padding-bottom: 1.5rem; /* Espaçamento inferior para o botão */
+    border-left: 4px solid var(--color-accent-gold); /* Mantém a borda esquerda */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Sombra inicial para efeito de luminosidade */
+    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out, border-left-color var(--transition-speed);
+}
+
+.formation-card:hover {
+    transform: scale(1.03); /* Efeito de leve crescimento */
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4); /* Efeito de luminosidade amarelada */
+    border-left-color: #ffffff; /* Bordas brancas ao passar o mouse */
 }
 
 .formation-card-image {
@@ -199,18 +229,36 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     font-weight: 700;
     font-size: 0.9rem;
     margin-top: 1rem;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra leve para o botão */
 }
 
 .formation-card .saiba-mais:hover {
     background-color: #e7c043;
     transform: translateY(-2px);
     filter: none; /* Remove o filtro brightness do link global */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra mais forte no hover */
 }
 
-/* Ajustes para dispositivos móveis */
-@media (max-width: 768px) {
-    .formation-card-image {
-        height: 180px; /* Ajuste para telas menores */
-    }
+/* Botão Voltar para o Início */
+.back-to-home-button {
+    display: inline-block;
+    background-color: var(--color-surface);
+    color: var(--color-primary-text);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-accent-gold);
+    transition: all var(--transition-speed) ease;
+    margin-top: 3rem; /* Espaçamento acima do botão */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.back-to-home-button:hover {
+    background-color: var(--color-accent-gold);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
