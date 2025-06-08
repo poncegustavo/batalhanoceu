@@ -34,6 +34,7 @@ img { max-width: 100%; height: auto; display: block; border-radius: var(--border
 a { text-decoration: none; color: var(--color-accent-gold); transition: filter var(--transition-speed); }
 a:hover { filter: brightness(1.2); }
 h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; color: var(--color-primary-text); }
+.text-center { text-align: center; }
 
 /* --- 3. NAVEGAÇÃO PROFISSIONAL --- */
 .navbar {
@@ -62,7 +63,7 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     display: inline-block;
     background-image: linear-gradient(45deg, var(--color-accent-gold), #e7c043);
     color: #000;
-    padding: 1.1rem 3rem; /* Tamanho ligeiramente maior */
+    padding: 1.1rem 3rem;
     border-radius: 50px;
     font-family: var(--font-body);
     font-weight: 700;
@@ -79,91 +80,66 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     50% { box-shadow: 0 8px 35px rgba(212, 175, 55, 0.4); }
     100% { box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25); }
 }
-.cta-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.45);
-}
+.cta-button:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(212, 175, 55, 0.45); }
+.secondary-button { background-image: none; background-color: transparent; border: 2px solid var(--color-border); color: var(--color-primary-text); box-shadow: none; animation: none; }
+.secondary-button:hover { background-color: var(--color-accent-gold); border-color: var(--color-accent-gold); color: #000; box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3); }
 
-.secondary-button { /* Botão secundário sem animação e com fundo transparente */
-    background-image: none;
-    background-color: transparent;
-    border: 2px solid var(--color-border);
-    color: var(--color-primary-text);
-    box-shadow: none;
-    animation: none;
-}
-.secondary-button:hover {
-    background-color: var(--color-accent-gold);
-    border-color: var(--color-accent-gold);
-    color: #000;
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-}
-
-/* --- NOVO ESTILO PARA O LINK "VOLTAR" --- */
-.back-link {
-    display: inline-block;
-    font-weight: 700;
-    color: var(--color-secondary-text);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.back-link:hover {
-    color: var(--color-primary-text);
-    text-decoration: underline;
-}
-
-/* --- 4. HERO SECTION --- */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 5rem 1rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), var(--color-background)), url('images/background-hero.jpg') no-repeat center center/cover;
-    background-attachment: fixed;
-}
-.hero h1 { font-size: 4rem; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-.hero .lead { font-size: 1.25rem; color: var(--color-secondary-text); max-width: 650px; margin: 1.5rem 0 2.5rem 0; }
-
-/* --- 5. SEÇÕES DE CONTEÚDO (ALINHAMENTO CORRIGIDO) --- */
+/* --- 4. LAYOUTS DE PÁGINA --- */
+.page-header { margin-top: 81px; padding: 5rem 1rem; text-align: center; background-color: var(--color-surface); border-bottom: 1px solid var(--color-border); }
+.page-header h1 { font-size: 3.5rem; }
+.page-header p { font-size: 1.2rem; color: var(--color-secondary-text); max-width: 700px; margin: 1rem auto 0; }
 .content-section { padding: 6rem 0; }
 .darker-section { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
 .section-title { font-size: 3rem; text-align: center; margin-bottom: 1.5rem; }
 .section-subtitle { font-size: 1.1rem; color: var(--color-secondary-text); text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
-.grid-container { display: grid; grid-template-columns: 1fr 1.5fr; align-items: center; gap: 4rem; }
-.grid-container.reverse { grid-template-columns: 1.5fr 1fr; }
-.grid-container.reverse .grid-text { order: -1; }
-.grid-text { text-align: left; } /* Alinhamento padrão para textos em grid */
-.grid-text h3 { font-size: 2rem; color: var(--color-accent-gold); margin-bottom: 1rem; }
-.grid-text p { color: var(--color-secondary-text); margin-bottom: 1rem; }
-.grid-text .saiba-mais { display: inline-block; margin-top: 1rem; font-weight: 700; }
-.text-center { text-align: center; } /* Classe utilitária para centralizar texto */
 
-/* --- SEÇÃO "ARMAS" --- */
-.weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; text-align: left;}
-.weapon-card { background-color: var(--color-surface); padding: 2rem; border-radius: var(--border-radius); border-left: 4px solid var(--color-accent-gold); }
-.weapon-card h4 { color: var(--color-primary-text); font-size: 1.2rem; margin-bottom: 0.5rem; }
+/* --- 5. PÁGINAS DE AUTENTICAÇÃO (LOGIN/CADASTRO) --- */
+.auth-page { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
+.auth-card {
+    background-color: var(--color-surface);
+    padding: 2.5rem 3rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+.auth-card .form-logo { height: 60px; margin: 0 auto 1.5rem auto; }
+.auth-card h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+.auth-card p { color: var(--color-secondary-text); margin-bottom: 2.5rem; }
+.auth-form { display: flex; flex-direction: column; gap: 1.5rem; text-align: left; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 700; font-size: 0.9rem; }
+.form-group input { width: 100%; padding: 0.9rem 1rem; background-color: var(--color-background); border: 1px solid var(--color-border); color: var(--color-primary-text); border-radius: var(--border-radius); font-size: 1rem; }
+.form-group input:focus { outline: none; border-color: var(--color-accent-gold); }
+.auth-form .cta-button { width: 100%; margin-top: 1rem; animation: none; }
+.auth-link { margin-top: 2rem; font-size: 0.9rem; }
 
-/* --- 6. RODAPÉ --- */
+/* --- 6. PÁGINA GATEWAY (ALISTE-SE) --- */
+.gateway-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.gateway-option {
+    background-color: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    color: var(--color-primary-text);
+    transition: all var(--transition-speed);
+}
+.gateway-option:hover { transform: translateY(-5px); border-color: var(--color-accent-gold); }
+.gateway-option h3 { color: var(--color-accent-gold); font-size: 1.75rem; }
+.gateway-option p { font-size: 1rem; color: var(--color-secondary-text); }
+
+/* --- 7. PÁGINA DE AGRADECIMENTO --- */
+.thank-you-actions { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 3rem; }
+.thank-you-actions .cta-button { min-width: 320px; text-align: center; }
+
+/* --- 8. RODAPÉ --- */
 .footer { padding: 4rem 0; text-align: center; color: var(--color-secondary-text); font-size: 0.9rem; background-color: var(--color-surface); border-top: 1px solid var(--color-border); }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 3rem;}
-.footer h4 { color: var(--color-accent-gold); }
-.footer ul { list-style: none; padding-left: 0; }
-.footer ul li a { color: var(--color-secondary-text); }
 .footer-bottom { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
 
-/* --- 7. PÁGINAS INTERNAS E RESPONSIVIDADE --- */
-.page-header { margin-top: 81px; padding: 5rem 1rem; text-align: center; background-color: var(--color-surface); border-bottom: 1px solid var(--color-border); }
-.page-header h1 { font-size: 3.5rem; }
-.page-header p { font-size: 1.2rem; color: var(--color-secondary-text); max-width: 700px; margin: 1rem auto 0; }
+/* --- 9. RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-    h1 { font-size: 2.8rem; }
-    .page-header h1 { font-size: 3rem; }
-    .section-title { font-size: 2.5rem; }
-    .grid-container, .grid-container.reverse { grid-template-columns: 1fr; }
-    .grid-container .grid-image, .grid-container.reverse .grid-image { margin: 0 auto 2rem auto; }
-    .grid-text { text-align: center; } /* Centraliza texto nos grids em telas pequenas */
-    .main-nav { display: none; } /* Adicionar lógica JS para menu hambúrguer no futuro */
+    .main-nav { display: none; }
+    .gateway-grid { grid-template-columns: 1fr; }
 }

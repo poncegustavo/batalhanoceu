@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <title>Aliste-se | General Gustavo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alistamento | General Gustavo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="nav-brand"><img src="images/image.png" alt="Logo"><span class="nav-brand-text">General Gustavo</span></a>
-            <nav class="main-nav"><a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="formacao.html">Formação</a><a href="aliste-se.html" class="nav-button active">Aliste-se</a></nav>
+            <a href="index.html" class="nav-brand"><img src="images/image.png" alt="Logo" class="nav-logo"><span class="nav-brand-text">General Gustavo</span></a>
+            <nav class="main-nav">
+                <a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="formacao.html">Formação</a><a href="aliste-se.html" class="nav-button active">Aliste-se</a>
+            </nav>
         </div>
     </header>
     <main>
-        <header class="page-header"><h1>Junte-se às Fileiras</h1><p>O caminho para o campo de batalha começa aqui.</p></header>
+        <header class="page-header">
+            <h1>Junte-se às Fileiras</h1>
+            <p>Escolha seu próximo passo para entrar no campo de batalha.</p>
+        </header>
         <section class="content-section">
-            <div class="container text-center">
-                <h2 class="section-title">Acesso ao Quartel General</h2>
-                <p class="section-subtitle">O seu alistamento é feito diretamente em nosso grupo de WhatsApp. Clique no botão abaixo para ser direcionado e receber as primeiras instruções.</p>
-                <a href="https://chat.whatsapp.com/DIDJcbVlyW4AK61vnehBNQ" target="_blank" class="cta-button">Entrar no Grupo e me Alistar</a>
+            <div class="container">
+                <div class="gateway-grid">
+                    <a href="login.html" class="gateway-option">
+                        <h3>Já sou Combatente</h3>
+                        <p>Se você já possui uma conta, faça o login para acessar a área de membros e o Quartel General.</p>
+                        <p style="font-weight: bold; margin-top: 1rem; color: var(--color-accent-gold)">Fazer Login &rarr;</p>
+                    </a>
+                    <a href="cadastro.html" class="gateway-option">
+                        <h3>Quero me Alistar</h3>
+                        <p>Se você é novo e sente o chamado, crie sua conta para se tornar um soldado no Grupo Batalha no Céu.</p>
+                        <p style="font-weight: bold; margin-top: 1rem; color: var(--color-accent-gold)">Criar Conta &rarr;</p>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
