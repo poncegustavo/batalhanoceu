@@ -122,17 +122,21 @@ main {
 /* --- 5. SEÇÕES DE CONTEÚDO --- */
 .content-section { padding: 6rem 0; }
 .darker { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-.section-title { font-size: 3rem; text-align: center; margin-bottom: 1.5rem; }
-.section-subtitle { font-size: 1.1rem; color: var(--color-secondary-text); text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
+/* Restaurando o estilo original do section-subtitle: maior e amarelado */
+.section-subtitle {
+    font-size: 1.2rem; /* Um pouco maior */
+    color: var(--color-accent-gold); /* Mais amarelado */
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+}
 .grid-container { display: grid; grid-template-columns: 1fr 1.5fr; align-items: center; gap: 4rem; }
 .grid-container.reverse { grid-template-columns: 1.5fr 1fr; }
 .grid-container.reverse .grid-text { order: -1; }
 .grid-text { text-align: center; } 
 
-/* Adicionado para centralizar o conteúdo da seção com a classe text-center (se ainda for usado) */
-.content-section.text-center {
-    text-align: center;
-}
+/* Removido .content-section.text-center pois não será mais usado para o botão voltar */
+
 
 /* SEÇÃO "ARMAS" / GRID GERAL DE CARDS */
 .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; text-align: left;}
@@ -335,19 +339,33 @@ main {
 }
 
 
-/* NOVO ESTILO PARA O BOTÃO "VOLTAR PARA O INÍCIO" */
-.back-to-home-link { /* Nova classe para o estilo de link */
-    display: inline-block; /* Para permitir margin e padding */
+/* NOVO ESTILO PARA O BOTÃO "VOLTAR PARA O INÍCIO" - AGORA UM LINK SIMPLES NO CANTO INFERIOR ESQUERDO */
+.back-to-home-link { 
+    display: block; /* Permite que ele ocupe a largura e posicione */
+    width: fit-content; /* Se ajusta ao conteúdo */
     font-weight: 700;
-    color: var(--color-accent-gold); /* Cor dourada */
+    color: var(--color-accent-gold); /* Cor dourada, como o "Aprofunde-se" */
     text-decoration: none; /* Sem sublinhado padrão */
     padding: 0.5rem 1rem; /* Um pouco de padding para área de clique */
     transition: filter var(--transition-speed); /* Transição suave no hover */
-    /* Removendo margens fixas para que o container possa posicionar */
-    /* margin-top: 2rem; */
-    /* margin-bottom: 1rem; */
+    margin-top: 3rem; /* Margem superior para separar do conteúdo */
+    /* Posicionamento no canto inferior esquerdo */
+    position: relative; /* Para que o bottom/left funcionem */
+    left: 5%; /* Mais à esquerda, ajustável se precisar */
+    bottom: 2rem; /* Afastado do rodapé */
+    transform: translateY(-50%); /* Ajuste fino vertical */
+    z-index: 999; /* Garante que fique acima de outros elementos */
+    font-size: 1.1rem; /* Tamanho um pouco maior para visibilidade */
 }
 
 .back-to-home-link:hover {
     filter: brightness(1.2); /* Clareia no hover, como outros links */
+}
+
+/* Medida para telas menores para o botão voltar */
+@media (max-width: 768px) {
+    .back-to-home-link {
+        left: 1rem; /* Ajusta para a borda em telas menores */
+        font-size: 1rem;
+    }
 }
