@@ -132,6 +132,11 @@ main {
 .grid-text p { color: var(--color-secondary-text); margin-bottom: 1rem; }
 .grid-text .saiba-mais { display: inline-block; margin-top: 1rem; font-weight: 700; }
 
+/* Adicionado para centralizar o conteúdo da seção com a classe text-center */
+.content-section.text-center {
+    text-align: center;
+}
+
 /* SEÇÃO "ARMAS" / GRID GERAL DE CARDS */
 .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; text-align: left;}
 .weapon-card {
