@@ -340,21 +340,14 @@ main {
 
 
 /* NOVO ESTILO PARA O BOTÃO "VOLTAR PARA O INÍCIO" - AGORA UM LINK SIMPLES NO CANTO INFERIOR ESQUERDO */
+/* Apenas estilo para o link, o posicionamento é feito no HTML com um container específico */
 .back-to-home-link { 
-    display: block; /* Permite que ele ocupe a largura e posicione */
-    width: fit-content; /* Se ajusta ao conteúdo */
+    display: inline-block; /* Comporta-se como texto, mas permite margem/padding */
     font-weight: 700;
     color: var(--color-accent-gold); /* Cor dourada, como o "Aprofunde-se" */
     text-decoration: none; /* Sem sublinhado padrão */
-    padding: 0.5rem 1rem; /* Um pouco de padding para área de clique */
+    padding: 0.5rem 0.5rem; /* Um pouco de padding para área de clique */
     transition: filter var(--transition-speed); /* Transição suave no hover */
-    margin-top: 3rem; /* Margem superior para separar do conteúdo */
-    /* Posicionamento no canto inferior esquerdo */
-    position: relative; /* Para que o bottom/left funcionem */
-    left: 5%; /* Mais à esquerda, ajustável se precisar */
-    bottom: 2rem; /* Afastado do rodapé */
-    transform: translateY(-50%); /* Ajuste fino vertical */
-    z-index: 999; /* Garante que fique acima de outros elementos */
     font-size: 1.1rem; /* Tamanho um pouco maior para visibilidade */
 }
 
@@ -362,10 +355,22 @@ main {
     filter: brightness(1.2); /* Clareia no hover, como outros links */
 }
 
+/* Container para posicionar o link no canto inferior esquerdo */
+.back-to-home-link-container {
+    text-align: left; /* Alinha o conteúdo à esquerda */
+    padding: 1rem 5%; /* Padding para afastar das bordas laterais, 5% é o padding do container */
+    margin-top: auto; /* Empurra para o final da página se o body for flex-column */
+    margin-bottom: 2rem; /* Espaçamento antes do footer */
+    width: 100%; /* Ocupa a largura total para alinhar o texto */
+    box-sizing: border-box; /* Inclui padding na largura total */
+}
+
 /* Medida para telas menores para o botão voltar */
 @media (max-width: 768px) {
+    .back-to-home-link-container {
+        padding: 1rem 1rem; /* Ajusta padding para telas menores */
+    }
     .back-to-home-link {
-        left: 1rem; /* Ajusta para a borda em telas menores */
         font-size: 1rem;
     }
 }
