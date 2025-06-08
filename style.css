@@ -262,3 +262,54 @@ main {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
+/* --- ESTILOS ESPECÍFICOS PARA OS CARDS DE ALISTAMENTO (gateway-option) --- */
+.gateway-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem; /* Aumenta o espaçamento entre os cards */
+    margin-top: 2rem;
+    justify-content: center; /* Centraliza os cards no grid */
+    text-align: center;
+}
+
+.gateway-option {
+    background-color: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border); /* Adiciona uma borda sutil */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra o link para baixo */
+    align-items: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, border-color var(--transition-speed);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3); /* Sombra inicial */
+}
+
+.gateway-option:hover {
+    transform: translateY(-8px); /* Efeito de elevação */
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4), 0 0 25px rgba(212, 175, 55, 0.2); /* Luminosidade dourada no hover */
+    border-color: var(--color-accent-gold); /* Borda dourada no hover */
+}
+
+.gateway-option h3 {
+    font-size: 1.8rem;
+    color: var(--color-accent-gold); /* Título em dourado */
+    margin-bottom: 1rem;
+}
+
+.gateway-option p {
+    color: var(--color-secondary-text);
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Permite que o parágrafo ocupe o espaço */
+}
+
+.gateway-option .gateway-link {
+    font-weight: bold;
+    color: var(--color-primary-text); /* Link em cor primária */
+    margin-top: 1rem;
+    transition: color var(--transition-speed);
+}
+
+.gateway-option:hover .gateway-link {
+    color: #fff; /* Link mais claro no hover */
+}
