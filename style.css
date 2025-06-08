@@ -155,3 +155,16 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     .grid-text { text-align: center; }
     .main-nav { display: none; } /* Adicionar lógica JS para menu hambúrguer no futuro */
 }
+/* --- ANIMAÇÃO DE DESTAQUE PARA AS ARMAS (NOVO) --- */
+
+/* Adiciona uma transição suave ao card de arma */
+.weapon-card {
+    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+}
+
+/* Efeito que acontece ao passar o mouse */
+.weapon-card:hover {
+    transform: scale(1.05); /* Aumenta o tamanho do card em 5% */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para dar efeito de elevação */
+    border-left-color: #ffffff; /* Deixa a borda branca para mais destaque */
+}
