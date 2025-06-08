@@ -343,17 +343,11 @@ main {
     text-decoration: none; /* Sem sublinhado padrão */
     padding: 0.5rem 1rem; /* Um pouco de padding para área de clique */
     transition: filter var(--transition-speed); /* Transição suave no hover */
-    margin-top: 2rem; /* Margem superior para separar do conteúdo */
-    margin-bottom: 1rem; /* Margem inferior para separar do rodapé */
+    /* Removendo margens fixas para que o container possa posicionar */
+    /* margin-top: 2rem; */
+    /* margin-bottom: 1rem; */
 }
 
 .back-to-home-link:hover {
     filter: brightness(1.2); /* Clareia no hover, como outros links */
-}
-
-/* Esconder a section antiga e adicionar o link diretamente */
-/* O HTML será alterado para remover a section. Este CSS é apenas para garantir */
-/* que o estilo anterior não afete caso a section fosse mantida. */
-.content-section.text-center .back-to-home-button {
-    display: none; /* Esconde o botão antigo dentro da section, se ainda existisse */
 }
