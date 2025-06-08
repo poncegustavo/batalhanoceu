@@ -140,11 +140,14 @@ main {
     border-radius: var(--border-radius);
     border-left: 4px solid var(--color-accent-gold);
     transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out, border-left-color var(--transition-speed);
+    /* Sombra inicial mais sutil para os cards de armas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3); 
 }
 .weapon-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-left-color: #ffffff;
+    /* Efeito de luminosidade amarelada para os cards de armas */
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4); /* Efeito de luminosidade amarelada */
+    border-left-color: #ffffff; /* Bordas brancas ao passar o mouse */
 }
 .weapon-card h4 { color: var(--color-primary-text); font-size: 1.2rem; margin-bottom: 0.5rem; }
 
@@ -262,6 +265,7 @@ main {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
 }
+
 /* --- ESTILOS ESPECÍFICOS PARA OS CARDS DE ALISTAMENTO (gateway-option) --- */
 .gateway-grid {
     display: grid;
