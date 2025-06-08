@@ -27,7 +27,7 @@ body {
     background-color: var(--color-background);
     color: var(--color-primary-text);
     line-height: 1.8;
-    font-size: 16px;
+    font-size: 16px; /* Restaurado para o tamanho padrão inicial */
     overflow-x: hidden;
 }
 .container { width: 90%; max-width: var(--container-width); margin: 0 auto; }
@@ -122,28 +122,29 @@ main {
 /* --- 5. SEÇÕES DE CONTEÚDO --- */
 .content-section { padding: 6rem 0; }
 .darker { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-
-/* CORREÇÃO AQUI: Subtítulos maiores e amarelados, como solicitado */
+/* Restaurado: subtítulos maiores e amarelados */
 .section-subtitle {
-    font-size: 1.25rem; /* Um pouco maior */
-    color: var(--color-accent-gold); /* Amarelado */
+    font-size: 1.25rem; /* Restaurado para o tamanho original '1.25rem' */
+    color: var(--color-accent-gold); /* Restaurado para a cor amarelada */
     text-align: center;
     max-width: 700px;
     margin: 0 auto 4rem auto;
 }
-/* Garantir que os parágrafos normais continuem brancos */
-.grid-text p {
-    color: var(--color-secondary-text); /* ou F5F5F5 se for o caso do seu texto primário */
+
+/* Títulos específicos dentro das sections (General, Pelotão, Milícia, Fonte) */
+/* Garantir que estes h3 (e não o section-subtitle) também mantenham o tamanho correto e cor */
+.grid-text h3 {
+    font-size: 2rem; /* Tamanho padrão de h3 para títulos de seção */
+    color: var(--color-accent-gold); /* Cor amarelada para destaque */
     margin-bottom: 1rem;
 }
 
-
-.grid-container { display: grid; grid-template-columns: 1fr 1.5fr; align-items: center; gap: 4rem; }
-.grid-container.reverse { grid-template-columns: 1.5fr 1fr; }
-.grid-container.reverse .grid-text { order: -1; }
-.grid-text { text-align: center; } 
-
-/* Não há necessidade de .content-section.text-center para o botão voltar */
+/* Parágrafos dentro das sections (texto principal) */
+.grid-text p {
+    font-size: 16px; /* Restaurado para o tamanho padrão do corpo do texto */
+    color: var(--color-secondary-text); /* Restaurado para a cor de texto secundário */
+    margin-bottom: 1rem;
+}
 
 
 /* SEÇÃO "ARMAS" / GRID GERAL DE CARDS */
@@ -165,7 +166,25 @@ main {
 }
 .weapon-card h4 { color: var(--color-primary-text); font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-/* SEÇÃO FINAL CTA */
+/* SEÇÃO FINAL CTA (Pronto para Aprofundar seu Combate?) */
+#chamado-formacao-final .section-title {
+    font-size: 3rem; /* Restaurado: tamanho maior */
+    color: var(--color-accent-gold); /* Restaurado: cor amarelada */
+    text-align: center; /* Restaurado: centralizado */
+    margin-bottom: 1.5rem;
+}
+#chamado-formacao-final .section-subtitle {
+    font-size: 1.1rem; /* Restaurado: tamanho menor */
+    color: var(--color-primary-text); /* Restaurado: cor branca */
+    text-align: center; /* Restaurado: centralizado */
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+}
+#chamado-formacao-final .cta-button {
+    /* O estilo do cta-button já está correto e centralizado por ser inline-block em um pai com text-align: center */
+    margin-top: 0; /* Remove margem extra se houver */
+    animation: pulse-glow 3s infinite ease-in-out;
+}
 #alistamento-final .content-section {
     text-align: center;
 }
@@ -193,6 +212,9 @@ main {
     /* Ajuste para mobile no padding-top para main */
     main {
         padding-top: var(--navbar-height);
+    }
+    .section-subtitle {
+        font-size: 1.1rem; /* Ajuste para mobile se necessário */
     }
 }
 
@@ -367,7 +389,7 @@ main {
 .back-to-home-link-container {
     text-align: left; /* Alinha o conteúdo à esquerda */
     padding: 1rem 5%; /* Padding para afastar das bordas laterais, 5% é o padding do container */
-    margin-top: auto; /* Empurra para o final da página se o body for flex-column */
+    margin-top: 2rem; /* Espaçamento após o conteúdo principal */
     margin-bottom: 2rem; /* Espaçamento antes do footer */
     width: 100%; /* Ocupa a largura total para alinhar o texto */
     box-sizing: border-box; /* Inclui padding na largura total */
