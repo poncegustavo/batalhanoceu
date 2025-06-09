@@ -157,14 +157,12 @@ main {
     border-radius: var(--border-radius);
     border-left: 4px solid var(--color-accent-gold);
     transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out, border-left-color var(--transition-speed);
-    /* Sombra original: NÃO luminosidade */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Restaurado para a sombra original */
+    /* Sombra com luminosidade */
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4); /* Efeito de luminosidade amarelada */
 }
 .weapon-card:hover {
     transform: scale(1.05);
-    /* Efeito de luminosidade amarelada para os cards de armas */
-    /* Removido o glow, voltando para o original */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Restaurado para a sombra original */
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.6); /* Intensificado no hover */
     border-left-color: #ffffff; /* Bordas brancas ao passar o mouse */
 }
 .weapon-card h4 { color: var(--color-primary-text); font-size: 1.2rem; margin-bottom: 0.5rem; }
@@ -197,7 +195,7 @@ main {
 
 /* --- 6. RODAPÉ --- */
 .footer {
-    padding: 2.5rem 0; /* Ajustado: padding do rodapé mais compacto, não gigante */
+    padding: 3rem 0; /* Ajustado: padding do rodapé mais compacto, visualmente equilibrado */
     text-align: center;
     color: var(--color-secondary-text);
     font-size: 0.9rem;
@@ -211,11 +209,10 @@ main {
     text-align: left;
     margin-bottom: 1.5rem; /* Ajustado margem */
 }
-.footer h4 { color: var(--color-accent-gold); margin-bottom: 0.8rem; /* Adicionado margin-bottom */ }
+.footer h4 { color: var(--color-accent-gold); margin-bottom: 0.8rem; }
 .footer ul { list-style: none; padding-left: 0; }
-.footer ul li a { color: var(--color-secondary-text); padding: 0.2rem 0; display: block; /* Para permitir padding */ }
-.footer-bottom { margin-top: 1.5rem; /* Ajustado margin-top */ padding-top: 1.5rem; /* Ajustado padding-top */ border-top: 1px solid var(--color-border); }
-
+.footer ul li a { color: var(--color-secondary-text); padding: 0.2rem 0; display: block; }
+.footer-bottom { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
 
 /* --- 7. RESPONSIVIDADE --- */
 @media (max-width: 768px) {
@@ -225,7 +222,7 @@ main {
     .grid-container .grid-image, .grid-container.reverse .grid-image { margin: 0 auto 2rem auto; }
     .grid-text { text-align: center; }
     .main-nav { display: none; } /* Adicionar lógica JS para menu hambúrguer no futuro */
-    .hero { min-height: calc(80vh - var(--navbar-height)); /* Ajuste para hero em mobile */ }
+    .hero { min-height: calc(80vh - var(--navbar-height)); } /* Ajuste para hero em mobile */
     .hero h1 { font-size: 3rem; }
     .hero .lead { font-size: 1.1rem; }
     .cta-button { padding: 0.9rem 2rem; font-size: 0.9rem; }
@@ -236,35 +233,94 @@ main {
     .footer-grid { text-align: center; } /* Centraliza colunas do rodapé em mobile */
 }
 
+/* --- ESTILOS ESPECÍFICOS PARA OS CARDS DE FORMAÇÃO --- */
+.formation-card {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Permite que o card se ajuste ao conteúdo */
+    text-align: center; /* Alinha o texto do card ao centro */
+    padding-bottom: 1.5rem; /* Espaçamento inferior para o botão */
+    border-left: 4px solid var(--color-accent-gold); /* Mantém a borda esquerda */
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 20px rgba(212, 175, 55, 0.4); /* Efeito de luminosidade amarelada */
+    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out, border-left-color var(--transition-speed);
+}
+
+.formation-card:hover {
+    transform: scale(1.03); /* Efeito de leve crescimento */
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.6); /* Intensificado no hover */
+    border-left-color: #ffffff; /* Bordas brancas ao passar o mouse */
+}
+
+.formation-card-image {
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens dos cards de formação */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    border-radius: var(--border-radius) var(--border-radius) 0 0; /* Bordas arredondadas apenas em cima */
+    margin-bottom: 1rem;
+}
+
+.formation-card h4 {
+    font-size: 1.4rem; /* Um pouco maior para destaque */
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-text);
+    padding: 0 1.5rem; /* Espaçamento lateral para o título */
+}
+
+.formation-card .subtitle {
+    font-size: 0.95rem;
+    color: var(--color-secondary-text);
+    flex-grow: 1; /* Permite que o parágrafo ocupe o espaço restante */
+    margin-bottom: 1rem;
+    padding: 0 1.5rem; /* Espaçamento lateral para o subtítulo */
+}
+
+.formation-card .saiba-mais {
+    display: inline-block;
+    background-color: var(--color-accent-gold);
+    color: #000;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Sombra leve para o botão */
+}
+
+.formation-card .saiba-mais:hover {
+    background-color: #e7c043;
+    transform: translateY(-2px);
+    filter: none; /* Remove o filtro brightness do link global */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra mais forte no hover */
+}
+
 /* --- ESTILOS PARA PÁGINAS DE AUTENTICAÇÃO (login.html e cadastro.html) --- */
-/* ATENÇÃO: Estes estilos NÃO ESTAVAM no primeiríssimo CSS. Se as páginas de login/cadastro
-   estiverem com problemas, precisaremos adicionar os estilos específicos para elas após esta restauração. */
 .auth-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    background-color: var(--color-background);
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    padding: 2rem 1rem; /* Padding para evitar que o conteúdo encoste nas bordas em telas pequenas */
+    background-color: var(--color-background); /* Garante o fundo correto */
 }
 
 .auth-card {
     background-color: var(--color-surface);
     padding: 3rem 2.5rem;
     border-radius: var(--border-radius);
-    max-width: 450px;
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    text-align: center;
-    border: 1px solid var(--color-border);
+    max-width: 450px; /* Largura máxima para o card */
+    width: 100%; /* Ocupa a largura total disponível até o max-width */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra para destacar o card */
+    text-align: center; /* Centraliza o texto e logo */
+    border: 1px solid var(--color-border); /* Borda sutil */
 }
 
 .auth-card .form-logo {
-    height: 60px;
+    height: 60px; /* Tamanho maior para o logo no card de autenticação */
     margin-bottom: 1.5rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto; /* Centraliza o logo */
+    margin-right: auto; /* Centraliza o logo */
 }
 
 .auth-card h1 {
@@ -280,11 +336,11 @@ main {
 
 .auth-form .form-group {
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: left; /* Alinha labels e inputs à esquerda dentro do form group */
 }
 
 .auth-form label {
-    display: block;
+    display: block; /* Cada label em uma nova linha */
     font-size: 0.95rem;
     color: var(--color-primary-text);
     margin-bottom: 0.6rem;
@@ -298,7 +354,7 @@ main {
     padding: 0.9rem 1rem;
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
-    background-color: #2a2a2a;
+    background-color: #2a2a2a; /* Fundo mais escuro para os inputs */
     color: var(--color-primary-text);
     font-size: 1rem;
     transition: border-color var(--transition-speed);
@@ -306,13 +362,13 @@ main {
 
 .auth-form input:focus {
     outline: none;
-    border-color: var(--color-accent-gold);
-    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+    border-color: var(--color-accent-gold); /* Borda dourada no foco */
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3); /* Sombra sutil no foco */
 }
 
 .auth-form .cta-button {
-    width: 100%;
-    padding: 1rem 1.5rem;
+    width: 100%; /* Botão ocupa a largura total do card */
+    padding: 1rem 1.5rem; /* Ajuste o padding se necessário */
     margin-top: 1.5rem;
     font-size: 1.05rem;
 }
@@ -328,30 +384,30 @@ main {
 }
 
 
-/* ESTILOS PARA O BOTÃO "VOLTAR PARA O INÍCIO" - Aplicados via HTML */
-/* O posicionamento no canto inferior esquerdo será via um div container no HTML */
-.back-to-home-link {
-    display: inline-block;
+/* NOVO ESTILO PARA O BOTÃO "VOLTAR PARA O INÍCIO" - AGORA UM LINK SIMPLES NO CANTO INFERIOR ESQUERDO */
+/* Apenas estilo para o link, o posicionamento é feito no HTML com um container específico */
+.back-to-home-link { 
+    display: inline-block; /* Comporta-se como texto, mas permite margem/padding */
     font-weight: 700;
-    color: var(--color-accent-gold);
-    text-decoration: none;
-    padding: 0.5rem 0.5rem;
-    transition: filter var(--transition-speed);
-    font-size: 1.1rem;
+    color: var(--color-accent-gold); /* Cor dourada, como o "Aprofunde-se" */
+    text-decoration: none; /* Sem sublinhado padrão */
+    padding: 0.5rem 0.5rem; /* Um pouco de padding para área de clique */
+    transition: filter var(--transition-speed); /* Transição suave no hover */
+    font-size: 1.1rem; /* Tamanho um pouco maior para visibilidade */
 }
 
 .back-to-home-link:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.2); /* Clareia no hover, como outros links */
 }
 
 /* Container para posicionar o link no canto inferior esquerdo */
 .back-to-home-link-container {
-    text-align: left;
-    padding: 1rem 5%; /* Ajustável para o canto */
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 100%;
-    box-sizing: border-box;
+    text-align: left; /* Alinha o conteúdo à esquerda */
+    padding: 1rem 5%; /* Padding para afastar das bordas laterais, 5% é o padding do container */
+    margin-top: 2rem; /* Espaçamento após o conteúdo principal */
+    margin-bottom: 2rem; /* Espaçamento antes do footer */
+    width: 100%; /* Ocupa a largura total para alinhar o texto */
+    box-sizing: border-box; /* Inclui padding na largura total */
 }
 
 @media (max-width: 768px) {
