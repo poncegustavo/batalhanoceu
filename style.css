@@ -102,6 +102,13 @@ main {
     box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25);
     animation: pulse-glow 3s infinite ease-in-out;
 }
+/* Ajuste para o CTA-button no final da página (Aliste-se no Pelotão) ser menor */
+#alistamento-final .cta-button,
+#chamado-formacao-final .cta-button {
+    padding: 0.9rem 2.5rem; /* Menor padding */
+    font-size: 0.95rem; /* Fonte ligeiramente menor */
+}
+
 @keyframes pulse-glow {
     0% { box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25); }
     50% { box-shadow: 0 8px 35px rgba(212, 175, 55, 0.4); }
@@ -199,14 +206,16 @@ main {
 /* SEÇÃO FINAL CTA (Pronto para Aprofundar seu Combate?) */
 /* Padroniza com o estilo da página de Formação */
 #alistamento-final .section-title,
-#chamado-formacao-final .section-title {
+#chamado-formacao-final .section-title,
+.page-header h1 { /* Aplicado também ao h1 de page-header */
     font-size: 3rem; /* Título grande */
     color: var(--color-primary-text); /* Branco */
     text-align: center;
     margin-bottom: 1.5rem;
 }
 #alistamento-final .section-subtitle,
-#chamado-formacao-final .section-subtitle {
+#chamado-formacao-final .section-subtitle,
+.page-header p.section-subtitle { /* Aplicado também ao p.section-subtitle de page-header */
     font-size: 1.1rem; /* Subtítulo menor */
     color: var(--color-primary-text); /* Branco */
     text-align: center;
@@ -451,8 +460,8 @@ main {
 .back-to-home-link-container {
     text-align: left;
     padding: 1rem 5%; /* Padding para afastar das bordas laterais, 5% é o padding do container */
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem; /* Espaçamento após o conteúdo principal */
+    margin-bottom: 2rem; /* Espaçamento antes do footer */
     width: 100%;
     box-sizing: border-box;
 }
