@@ -16,6 +16,7 @@
     --container-width: 1100px;
     --border-radius: 8px;
     --transition-speed: 0.4s;
+    --navbar-height: 60px; /* Ajustado: cabeçalho mais compacto */
 }
 
 /* --- 2. RESET E ESTILOS GLOBAIS --- */
@@ -26,7 +27,7 @@ body {
     background-color: var(--color-background);
     color: var(--color-primary-text);
     line-height: 1.8;
-    font-size: 16px;
+    font-size: 16px; /* Restaurado para o tamanho padrão inicial */
     overflow-x: hidden;
 }
 .container { width: 90%; max-width: var(--container-width); margin: 0 auto; }
@@ -35,27 +36,44 @@ a { text-decoration: none; color: var(--color-accent-gold); transition: filter v
 a:hover { filter: brightness(1.2); }
 h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; color: var(--color-primary-text); }
 
+/* Ajuste para o conteúdo não ficar sob o cabeçalho fixo */
+main {
+    padding-top: var(--navbar-height); /* Adiciona um padding no topo da main igual à altura da navbar */
+}
+/* No caso de page-header que já tem padding no topo, podemos ajustar */
+.page-header {
+    padding-top: 3rem; /* Pode manter ou ajustar este padding */
+    padding-bottom: 3rem;
+    text-align: center;
+    background-color: var(--color-surface); /* Ou manter transparente se for hero */
+    border-bottom: 1px solid var(--color-border);
+}
+
+
 /* --- 3. NAVEGAÇÃO PROFISSIONAL --- */
 .navbar {
     background: rgba(20, 20, 20, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
-    padding: 1rem 0;
+    padding: 0.8rem 0; /* Ajustado: padding do cabeçalho mais compacto */
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    height: var(--navbar-height); /* Define altura do cabeçalho */
+    display: flex;
+    align-items: center;
 }
-.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; width: 90%; max-width: var(--container-width); margin: 0 auto; }
 .nav-brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
-.nav-logo { height: 45px; }
-.nav-brand-text { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary-text); }
+.nav-logo { height: 40px; /* Ajustado: logo um pouco menor para caber no cabeçalho menor */ }
+.nav-brand-text { font-family: var(--font-heading); font-size: 1.4rem; /* Ajustado: texto da marca um pouco menor */ color: var(--color-primary-text); }
 .main-nav { display: flex; align-items: center; }
-.main-nav a { font-weight: 700; color: var(--color-secondary-text); text-decoration: none; margin-left: 2rem; transition: color var(--transition-speed); }
+.main-nav a { font-weight: 700; color: var(--color-secondary-text); text-decoration: none; margin-left: 1.8rem; /* Ajustado: espaçamento entre links */ transition: color var(--transition-speed); }
 .main-nav a:hover, .main-nav a.active { color: var(--color-primary-text); }
-.nav-button { background-image: linear-gradient(45deg, var(--color-accent-gold), #e7c043); color: #000; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; margin-left: 2rem; border: none; transition: all var(--transition-speed); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2); }
-.nav-button:hover { transform: translateY(-3px); box-shadow: 0 7px 20px rgba(212, 175, 55, 0.3); }
+.nav-button { background-image: linear-gradient(45deg, var(--color-accent-gold), #e7c043); color: #000; padding: 0.6rem 1.2rem; /* Ajustado: padding do botão menor */ border-radius: 50px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; /* Ajustado: fonte menor */ margin-left: 1.8rem; border: none; transition: all var(--transition-speed); box-shadow: 0 3px 10px rgba(212, 175, 55, 0.2); }
+.nav-button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3); }
 
 /* --- BOTÕES COM DESTAQUE MÁXIMO --- */
 .cta-button {
@@ -86,7 +104,7 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
 
 /* --- 4. HERO SECTION --- */
 .hero {
-    min-height: 100vh;
+    min-height: calc(100vh - var(--navbar-height)); /* Ajustado para considerar a navbar */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -101,53 +119,103 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     font-size: 1.25rem;
     color: var(--color-secondary-text);
     max-width: 650px;
-    margin: 1.5rem auto 2.5rem auto; /* Alinhamento centralizado */
+    margin: 1.5rem auto 2.5rem auto;
 }
 
 /* --- 5. SEÇÕES DE CONTEÚDO --- */
 .content-section { padding: 6rem 0; }
-.darker-section { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-.section-title { font-size: 3rem; text-align: center; margin-bottom: 1.5rem; }
-.section-subtitle { font-size: 1.1rem; color: var(--color-secondary-text); text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
-.grid-container { display: grid; grid-template-columns: 1fr 1.5fr; align-items: center; gap: 4rem; }
-.grid-container.reverse { grid-template-columns: 1.5fr 1fr; }
-.grid-container.reverse .grid-text { order: -1; }
-.grid-text { text-align: center; } 
-.grid-text h3 { font-size: 2rem; color: var(--color-accent-gold); margin-bottom: 1rem; }
-.grid-text p { color: var(--color-secondary-text); margin-bottom: 1rem; }
-.grid-text .saiba-mais { display: inline-block; margin-top: 1rem; font-weight: 700; }
+.darker { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+/* Restaurado: subtítulos maiores e amarelados */
+.section-subtitle {
+    font-size: 1.25rem; /* Restaurado para o tamanho original '1.25rem' */
+    color: var(--color-accent-gold); /* Restaurado para a cor amarelada */
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+}
 
-/* --- SEÇÃO "ARMAS" --- */
+/* Títulos específicos dentro das sections (General, Pelotão, Milícia, Fonte) */
+/* Garantir que estes h3 (e não o section-subtitle) também mantenham o tamanho correto e cor */
+.grid-text h3 {
+    font-size: 2rem; /* Tamanho padrão de h3 para títulos de seção */
+    color: var(--color-accent-gold); /* Cor amarelada para destaque */
+    margin-bottom: 1rem;
+}
+
+/* Parágrafos dentro das sections (texto principal) */
+.grid-text p {
+    font-size: 16px; /* Restaurado para o tamanho padrão do corpo do texto */
+    color: var(--color-secondary-text); /* Restaurado para a cor de texto secundário */
+    margin-bottom: 1rem;
+}
+
+/* SEÇÃO "ARMAS" / GRID GERAL DE CARDS */
 .weapons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; text-align: left;}
 .weapon-card {
     background-color: var(--color-surface);
     padding: 2rem;
     border-radius: var(--border-radius);
     border-left: 4px solid var(--color-accent-gold);
-    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+    transition: transform var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out, border-left-color var(--transition-speed);
+    /* Sombra original: NÃO luminosidade */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Restaurado para a sombra original */
 }
 .weapon-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-left-color: #ffffff;
+    /* Efeito de luminosidade amarelada para os cards de armas */
+    /* Removido o glow, voltando para o original */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Restaurado para a sombra original */
+    border-left-color: #ffffff; /* Bordas brancas ao passar o mouse */
 }
 .weapon-card h4 { color: var(--color-primary-text); font-size: 1.2rem; margin-bottom: 0.5rem; }
 
-/* SEÇÃO FINAL CTA (REVERTIDA PARA O PADRÃO) */
+/* SEÇÃO FINAL CTA (Pronto para Aprofundar seu Combate?) */
+#chamado-formacao-final .section-title {
+    font-size: 3rem; /* Restaurado: tamanho maior */
+    color: var(--color-accent-gold); /* Restaurado: cor amarelada */
+    text-align: center; /* Restaurado: centralizado */
+    margin-bottom: 1.5rem;
+}
+#chamado-formacao-final .section-subtitle {
+    font-size: 1.1rem; /* Restaurado: tamanho menor */
+    color: var(--color-primary-text); /* Restaurado: cor branca */
+    text-align: center; /* Restaurado: centralizado */
+    max-width: 700px;
+    margin: 0 auto 4rem auto;
+}
+#chamado-formacao-final .cta-button {
+    /* O estilo do cta-button já está correto e centralizado por ser inline-block em um pai com text-align: center */
+    margin-top: 0; /* Remove margem extra se houver */
+    animation: pulse-glow 3s infinite ease-in-out;
+}
 #alistamento-final .content-section {
     text-align: center;
 }
 #alistamento-final .cta-button {
-    animation: pulse-glow 3s infinite ease-in-out; /* Mantém a animação de pulsação */
+    animation: pulse-glow 3s infinite ease-in-out;
 }
 
 /* --- 6. RODAPÉ --- */
-.footer { padding: 4rem 0; text-align: center; color: var(--color-secondary-text); font-size: 0.9rem; background-color: var(--color-surface); border-top: 1px solid var(--color-border); }
-.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left; margin-bottom: 3rem;}
-.footer h4 { color: var(--color-accent-gold); }
+.footer {
+    padding: 2.5rem 0; /* Ajustado: padding do rodapé mais compacto, não gigante */
+    text-align: center;
+    color: var(--color-secondary-text);
+    font-size: 0.9rem;
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustado minmax para colunas do rodapé */
+    gap: 1.5rem; /* Ajustado gap */
+    text-align: left;
+    margin-bottom: 1.5rem; /* Ajustado margem */
+}
+.footer h4 { color: var(--color-accent-gold); margin-bottom: 0.8rem; /* Adicionado margin-bottom */ }
 .footer ul { list-style: none; padding-left: 0; }
-.footer ul li a { color: var(--color-secondary-text); }
-.footer-bottom { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+.footer ul li a { color: var(--color-secondary-text); padding: 0.2rem 0; display: block; /* Para permitir padding */ }
+.footer-bottom { margin-top: 1.5rem; /* Ajustado margin-top */ padding-top: 1.5rem; /* Ajustado padding-top */ border-top: 1px solid var(--color-border); }
+
 
 /* --- 7. RESPONSIVIDADE --- */
 @media (max-width: 768px) {
@@ -157,4 +225,140 @@ h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1
     .grid-container .grid-image, .grid-container.reverse .grid-image { margin: 0 auto 2rem auto; }
     .grid-text { text-align: center; }
     .main-nav { display: none; } /* Adicionar lógica JS para menu hambúrguer no futuro */
+    .hero { min-height: calc(80vh - var(--navbar-height)); /* Ajuste para hero em mobile */ }
+    .hero h1 { font-size: 3rem; }
+    .hero .lead { font-size: 1.1rem; }
+    .cta-button { padding: 0.9rem 2rem; font-size: 0.9rem; }
+    .nav-logo { height: 35px; }
+    .nav-brand-text { font-size: 1.2rem; }
+    .navbar { padding: 0.6rem 0; }
+    .footer { padding: 3rem 0; }
+    .footer-grid { text-align: center; } /* Centraliza colunas do rodapé em mobile */
+}
+
+/* --- ESTILOS PARA PÁGINAS DE AUTENTICAÇÃO (login.html e cadastro.html) --- */
+/* ATENÇÃO: Estes estilos NÃO ESTAVAM no primeiríssimo CSS. Se as páginas de login/cadastro
+   estiverem com problemas, precisaremos adicionar os estilos específicos para elas após esta restauração. */
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    background-color: var(--color-background);
+}
+
+.auth-card {
+    background-color: var(--color-surface);
+    padding: 3rem 2.5rem;
+    border-radius: var(--border-radius);
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    text-align: center;
+    border: 1px solid var(--color-border);
+}
+
+.auth-card .form-logo {
+    height: 60px;
+    margin-bottom: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-card h1 {
+    font-size: 2.2rem;
+    color: var(--color-primary-text);
+    margin-bottom: 0.8rem;
+}
+
+.auth-card p {
+    color: var(--color-secondary-text);
+    margin-bottom: 2rem;
+}
+
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.auth-form label {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--color-primary-text);
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+}
+
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"] {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background-color: #2a2a2a;
+    color: var(--color-primary-text);
+    font-size: 1rem;
+    transition: border-color var(--transition-speed);
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.3);
+}
+
+.auth-form .cta-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.auth-link {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-secondary-text);
+}
+
+.auth-link a {
+    font-weight: 700;
+}
+
+
+/* ESTILOS PARA O BOTÃO "VOLTAR PARA O INÍCIO" - Aplicados via HTML */
+/* O posicionamento no canto inferior esquerdo será via um div container no HTML */
+.back-to-home-link {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--color-accent-gold);
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    transition: filter var(--transition-speed);
+    font-size: 1.1rem;
+}
+
+.back-to-home-link:hover {
+    filter: brightness(1.2);
+}
+
+/* Container para posicionar o link no canto inferior esquerdo */
+.back-to-home-link-container {
+    text-align: left;
+    padding: 1rem 5%; /* Ajustável para o canto */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .back-to-home-link-container {
+        padding: 1rem 1rem;
+    }
+    .back-to-home-link {
+        font-size: 1rem;
+    }
 }
