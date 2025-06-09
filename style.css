@@ -102,11 +102,13 @@ main {
     box-shadow: 0 5px 20px rgba(212, 175, 55, 0.25);
     animation: pulse-glow 3s infinite ease-in-out;
 }
-/* Ajuste para o CTA-button no final da página (Aliste-se no Pelotão) ser menor */
+/* Ajuste para o CTA-button no final da página (Aliste-se no Pelotão) ser menor e mais estreito */
 #alistamento-final .cta-button,
 #chamado-formacao-final .cta-button {
-    padding: 0.9rem 2.5rem; /* Menor padding */
+    padding: 0.9rem 2rem; /* Menor padding horizontal */
     font-size: 0.95rem; /* Fonte ligeiramente menor */
+    width: auto; /* Permite que o botão se ajuste ao conteúdo, não 100% da largura */
+    min-width: 200px; /* Garante um tamanho mínimo */
 }
 
 @keyframes pulse-glow {
@@ -150,6 +152,15 @@ main {
     max-width: 700px;
     margin: 0 auto 4rem auto;
 }
+/* Estilo para p.section-subtitle em page-header (como em aliste-se.html, sobre.html, formacao.html) */
+.page-header p.section-subtitle {
+    font-size: 1.1rem; /* Tamanho do subtitulo abaixo do h1 */
+    color: var(--color-primary-text); /* Cor branca */
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem auto; /* Ajusta margem para ser mais próxima do h1 */
+}
+
 
 /* Títulos específicos dentro das sections (General, Pelotão, Milícia, Fonte) */
 /* Garantir que estes h3 (e não o section-subtitle) também mantenham o tamanho correto e cor */
@@ -158,7 +169,6 @@ main {
     color: var(--color-accent-gold); /* Cor amarelada para destaque */
     margin-bottom: 1rem;
 }
-
 /* Parágrafos dentro das sections (texto principal) */
 .grid-text p {
     font-size: 16px; /* Restaurado para o tamanho padrão do corpo do texto */
@@ -206,16 +216,14 @@ main {
 /* SEÇÃO FINAL CTA (Pronto para Aprofundar seu Combate?) */
 /* Padroniza com o estilo da página de Formação */
 #alistamento-final .section-title,
-#chamado-formacao-final .section-title,
-.page-header h1 { /* Aplicado também ao h1 de page-header */
+#chamado-formacao-final .section-title {
     font-size: 3rem; /* Título grande */
     color: var(--color-primary-text); /* Branco */
     text-align: center;
     margin-bottom: 1.5rem;
 }
 #alistamento-final .section-subtitle,
-#chamado-formacao-final .section-subtitle,
-.page-header p.section-subtitle { /* Aplicado também ao p.section-subtitle de page-header */
+#chamado-formacao-final .section-subtitle {
     font-size: 1.1rem; /* Subtítulo menor */
     color: var(--color-primary-text); /* Branco */
     text-align: center;
