@@ -49,6 +49,21 @@ main {
     border-bottom: 1px solid var(--color-border);
 }
 
+/* Padroniza os cabeçalhos secundários (page-header h1 e p.section-subtitle) */
+.page-header h1 {
+    font-size: 3rem; /* Título grande, como em 'Seu Posto de Combate o Aguarda' */
+    color: var(--color-primary-text); /* Branco */
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.page-header p.section-subtitle {
+    font-size: 1.1rem; /* Subtítulo menor */
+    color: var(--color-primary-text); /* Branco */
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem auto; /* Ajusta margem para ser mais próxima do h1 */
+}
+
 
 /* --- 3. NAVEGAÇÃO PROFISSIONAL --- */
 .navbar {
@@ -152,15 +167,6 @@ main {
     max-width: 700px;
     margin: 0 auto 4rem auto;
 }
-/* Estilo para p.section-subtitle em page-header (como em aliste-se.html, sobre.html, formacao.html) */
-.page-header p.section-subtitle {
-    font-size: 1.1rem; /* Tamanho do subtitulo abaixo do h1 */
-    color: var(--color-primary-text); /* Cor branca */
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 2rem auto; /* Ajusta margem para ser mais próxima do h1 */
-}
-
 
 /* Títulos específicos dentro das sections (General, Pelotão, Milícia, Fonte) */
 /* Garantir que estes h3 (e não o section-subtitle) também mantenham o tamanho correto e cor */
@@ -169,6 +175,7 @@ main {
     color: var(--color-accent-gold); /* Cor amarelada para destaque */
     margin-bottom: 1rem;
 }
+
 /* Parágrafos dentro das sections (texto principal) */
 .grid-text p {
     font-size: 16px; /* Restaurado para o tamanho padrão do corpo do texto */
@@ -230,14 +237,16 @@ main {
     max-width: 700px;
     margin: 0 auto 4rem auto;
 }
-#alistamento-final .cta-button,
-#chamado-formacao-final .cta-button {
-    /* O estilo do cta-button já está correto e centralizado por ser inline-block em um pai com text-align: center */
-    margin-top: 0; /* Remove margem extra se houver */
-    animation: pulse-glow 3s infinite ease-in-out;
-    display: block; /* Para garantir que o botão seja centralizado com text-align: center no pai */
-    margin-left: auto;
-    margin-right: auto;
+/* O ajuste do botão .cta-button para ser menor já foi feito acima */
+
+
+/* Estilo para a linha HR divisória */
+.hr-divider {
+    border: none;
+    border-top: 1px solid var(--color-accent-gold);
+    margin: 4rem auto; /* Centraliza e adiciona margem */
+    width: 80%; /* Largura da linha */
+    max-width: 600px; /* Largura máxima */
 }
 
 /* --- 6. RODAPÉ --- */
